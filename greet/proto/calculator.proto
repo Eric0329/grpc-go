@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package = "github.com/Eric0329/grpc-go/greet/proto";
+
+import "google/api/annotations.proto";
+
+
+service CalculatorService {
+    rpc sum(CalcReq) returns (CalcResp) {}
+}
+
+message CalcReq {
+    int32 n1 = 1;
+    int32 n2 = 2;
+}
+
+message CalcResp {
+    int32 sum = 1;
+}

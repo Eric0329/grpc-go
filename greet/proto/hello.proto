@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package = "github.com/Eric0329/grpc-go/greet/proto";
+
+import "google/api/httpbody.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+
+service HellowService {
+    rpc SayHello (HelloReq) returns (HelloResp) {
+        option (google.api.http) = {
+            post: "/SayHello"
+            body: "*"
+        };
+    }
+
+    rpc SayHelloManyTimes (HelloReq) returns (stream HelloResp) {}
+
+    rpc Download(google.protobuf.Empty) returns (stream google.api.HttpBody) {
+		option (google.api.http) = {
+			get: "/download"
+		};
+	}
+}
+
+message HelloReq {
+    string greeting = 1;
+}
+
+message  HelloResp {
+    string reply = 1;
+}
+

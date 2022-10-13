@@ -1,0 +1,18 @@
+GET https://catfact.ninja/fact 
+
+###
+POST https://reqres.in/api/users
+Content-Type: application/json
+
+{
+    "name": "TT",
+    "job": "firefighter"
+}
+
+###
+POST http://127.0.0.1:50080/SayHello HTTP/2.0
+Content-Type: application/json
+
+{
+    "greeting":"call by VSCode Rest Client HiHi"
+}
